@@ -33,6 +33,15 @@ for (let input of [posOdds, negOdds]) {
 	input.addEventListener('input', update);
 }
 
+document.addEventListener('keydown', function(event) {
+	if (event.key == 'Enter') {
+		if (document.activeElement && document.activeElement.nodeName.toLowerCase() == 'input')
+			document.activeElement.blur();
+		else
+			posOdds.focus();
+	}
+});
+
 if (localStorage.posOdds)
 	posOdds.value = localStorage.posOdds;
 if (localStorage.negOdds)
