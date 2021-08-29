@@ -17,7 +17,7 @@ function selectInput(input) {
 }
 
 function update() {
-	let odds = [parseFloat(posOdds.value), parseFloat(negOdds.value)];
+	let odds = [Number(posOdds.value), Number(negOdds.value)];
 	let sum = odds[0] + odds[1];
 	posProb.textContent = (odds[1] / sum * 100).toFixed();
 	negProb.textContent = (odds[0] / sum * 100).toFixed();
