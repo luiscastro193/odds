@@ -27,6 +27,12 @@ function update() {
 	localStorage.negOdds = negOdds.value;
 }
 
+for (let input of [posOdds, negOdds]) {
+	input.addEventListener('mouseenter', () => input.focus());
+	input.addEventListener('focus', () => selectInput(input));
+	input.addEventListener('input', update);
+}
+
 if (localStorage.posOdds)
 	posOdds.value = localStorage.posOdds;
 if (localStorage.negOdds)
