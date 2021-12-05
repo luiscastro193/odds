@@ -13,7 +13,7 @@ function waitForGlobal(name) {
 let config;
 
 let vegaLoaded = (async () => {
-	await	waitForGlobal("vl");
+	await waitForGlobal("vl");
 	vl.register(vega, vegaLite, {view: {renderer: "svg"}});
 	config = vegaThemes.dark;
 	config.legend = {disable: true};
@@ -31,7 +31,7 @@ async function drawProbs(pos, neg) {
 		{type: "-", value: neg}
 	];
 	
-	await	vegaLoaded;
+	await vegaLoaded;
 	let chart = await vl.markArc().data(data).encode(
 		vl.theta().fieldQ('value'),
 		vl.color().fieldN('type')
