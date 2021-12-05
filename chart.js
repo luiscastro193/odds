@@ -1,23 +1,17 @@
 "use strict";
 const chartElement = document.getElementById('chart');
-
-function waitForGlobal(name) {
-	return new Promise(resolve => {
-		if (window[name])
-			return resolve();
-		
-		document.head.querySelector(`[data-id=${name}]`).addEventListener('load', () => resolve());
-	});
-}
-
 let config;
 
-let vegaLoaded = (async () => {
-	await waitForGlobal("vl");
-	vl.register(vega, vegaLite, {view: {renderer: "svg"}});
-	config = vegaThemes.dark;
-	config.legend = {disable: true};
-	config.background = "#000"
+let vegaLoaded = (() => {
+	return new Promise(resolve => {
+		document.head.querySelector("[data-id=vl]").onload = () => {
+			vl.register(vega, vegaLite, {view: {renderer: "svg"}});
+			config = vegaThemes.dark;
+			config.legend = {disable: true};
+			config.background = "#000";
+			resolve();
+		};
+	});
 })();
 
 let lastDraw = 0;
