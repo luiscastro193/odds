@@ -7,7 +7,12 @@
 	<link rel="icon" href="favicon.svg" type="image/svg+xml">
 	<link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="styles.css">
+	<script src="chart.js" defer></script>
 	<script src="main.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega/build/vega.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite/build/vega-lite.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-themes/build/vega-themes.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite-api/build/vega-lite-api.min.js" data-id="vl" defer></script>
 </head>
 <body>
 	<h3>Odds calculator</h3>
@@ -35,5 +40,6 @@
 			<tr><td><span id="commission">0</span>%</td></tr>
 		</table>
 	</section>
+	<section id="chart"></section>
 </body>
 </html>

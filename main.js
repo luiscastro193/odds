@@ -19,10 +19,12 @@ function selectInput(input) {
 function update() {
 	let odds = [Number(posOdds.value), Number(negOdds.value)];
 	let sum = odds[0] + odds[1];
-	posProb.textContent = (odds[1] / sum * 100).toFixed();
-	negProb.textContent = (odds[0] / sum * 100).toFixed();
+	let probs = [odds[1] / sum * 100, odds[0] / sum * 100];
+	posProb.textContent = probs[0].toFixed();
+	negProb.textContent = probs[1].toFixed();
 	commission.textContent = ((odds[0] * odds[1] / sum - 1) * -100).toFixed();
 	
+	drawProbs(probs[0], probs[1]);
 	localStorage.posOdds = posOdds.value;
 	localStorage.negOdds = negOdds.value;
 }

@@ -20,3 +20,11 @@ body {
 input {
 	max-width: 4em;
 }
+
+#chart {
+	filter: invert(1);
+}
+
+#chart svg {
+	transform: scaleX(-1);
+}
