@@ -2,17 +2,15 @@
 const chartElement = document.getElementById('chart');
 let config;
 
-let vegaLoaded = (() => {
-	return new Promise(resolve => {
-		document.head.querySelector("[data-id=vl]").onload = () => {
-			vl.register(vega, vegaLite, {view: {renderer: "svg"}});
-			config = vegaThemes.dark;
-			config.legend = {disable: true};
-			config.background = "#000";
-			resolve();
-		};
-	});
-})();
+let vegaLoaded = new Promise(resolve => {
+	document.head.querySelector("[data-id=vl]").onload = () => {
+		vl.register(vega, vegaLite, {view: {renderer: "svg"}});
+		config = vegaThemes.dark;
+		config.legend = {disable: true};
+		config.background = "#000";
+		resolve();
+	};
+});
 
 let lastDraw = 0;
 
