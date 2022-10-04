@@ -24,6 +24,10 @@ async function drawProbs(pos, neg) {
 	];
 	
 	await vegaLoaded;
+	
+	if (drawId != lastDraw)
+		return;
+	
 	let chart = await vl.markArc().data(data).encode(
 		vl.theta().fieldQ('value'),
 		vl.color().fieldN('type')
