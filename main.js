@@ -41,6 +41,7 @@ aggregate.onclick = function() {
 	negOdds.value = odds[0] * odds[1] / (odds[0] + odds[1]);
 	posOdds.value = "";
 	update();
+	posOdds.focus();
 }
 
 document.addEventListener('keydown', function(event) {
