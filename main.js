@@ -1,6 +1,7 @@
 "use strict";
 const posOdds = document.getElementById('pos-odds');
 const negOdds = document.getElementById('neg-odds');
+const aggregate = document.getElementById('aggregate');
 const posProb = document.getElementById('pos-prob');
 const negProb = document.getElementById('neg-prob');
 const commission = document.getElementById('commission');
@@ -35,12 +36,19 @@ for (let input of [posOdds, negOdds]) {
 	input.addEventListener('input', update);
 }
 
+aggregate.onclick = function() {
+	let odds = [Number(posOdds.value), Number(negOdds.value)];
+	negOdds.value = odds[0] * odds[1] / (odds[0] + odds[1]);
+	posOdds.value = "";
+	update();
+}
+
 document.addEventListener('keydown', function(event) {
 	if (event.key == 'Enter') {
 		if (document.activeElement && document.activeElement.nodeName.toLowerCase() == 'input')
 			document.activeElement.blur();
 		else
-			posOdds.focus();
+			setTimeout(() => posOdds.focus(), 0);
 	}
 });
 

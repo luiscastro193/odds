@@ -17,6 +17,10 @@ body {
 	margin: 0 1em 1em 0;
 }
 
+#aggregate {
+	margin-left: 1em;
+}
+
 input {
 	max-width: 4em;
 }
