@@ -5,6 +5,8 @@ const aggregate = document.getElementById('aggregate');
 const posProb = document.getElementById('pos-prob');
 const negProb = document.getElementById('neg-prob');
 const commission = document.getElementById('commission');
+const posRealOdds = document.getElementById('pos-real-odds');
+const negRealOdds = document.getElementById('neg-real-odds');
 
 function selectInput(input) {
 	setTimeout(function() {
@@ -24,6 +26,8 @@ function update() {
 	posProb.textContent = probs[0].toFixed();
 	negProb.textContent = probs[1].toFixed();
 	commission.textContent = ((odds[0] * odds[1] / sum - 1) * -100).toFixed();
+	posRealOdds.textContent = (sum / odds[1]).toFixed(1);
+	negRealOdds.textContent = (sum / odds[0]).toFixed(1);
 	
 	drawProbs(probs[0], probs[1]);
 	localStorage.posOdds = posOdds.value;
