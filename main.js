@@ -50,7 +50,7 @@ aggregate.onclick = function() {
 
 document.addEventListener('keydown', function(event) {
 	if (event.key == 'Enter') {
-		let activeElement = document?.activeElement.nodeName.toLowerCase();
+		let activeElement = document.activeElement?.nodeName.toLowerCase();
 		
 		if (activeElement == 'input')
 			document.activeElement.blur();
