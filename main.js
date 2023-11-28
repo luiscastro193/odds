@@ -42,17 +42,19 @@ for (let input of [posOdds, negOdds]) {
 
 aggregate.onclick = function() {
 	let odds = [Number(posOdds.value), Number(negOdds.value)];
-	negOdds.value = odds[0] * odds[1] / (odds[0] + odds[1]);
-	posOdds.value = "";
+	posOdds.value = odds[0] * odds[1] / (odds[0] + odds[1]);
+	negOdds.value = "";
 	update();
-	posOdds.focus();
+	negOdds.focus();
 }
 
 document.addEventListener('keydown', function(event) {
 	if (event.key == 'Enter') {
-		if (document.activeElement && document.activeElement.nodeName.toLowerCase() == 'input')
+		let activeElement = document?.activeElement.nodeName.toLowerCase();
+		
+		if (activeElement == 'input')
 			document.activeElement.blur();
-		else
+		else if (activeElement != 'button')
 			setTimeout(() => posOdds.focus(), 0);
 	}
 });
