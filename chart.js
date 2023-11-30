@@ -15,7 +15,7 @@ let vegaLoaded = new Promise(resolve => {
 let lastDraw = 0;
 
 async function drawProbs(pos, neg) {
-	let drawId = ++lastDraw;
+	const drawId = lastDraw = (lastDraw + 1) % Number.MAX_SAFE_INTEGER;
 	chartElement.innerHTML = '';
 	
 	let data = [
