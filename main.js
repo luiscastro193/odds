@@ -8,17 +8,6 @@ const commission = document.getElementById('commission');
 const posRealOdds = document.getElementById('pos-real-odds');
 const negRealOdds = document.getElementById('neg-real-odds');
 
-function selectInput(input) {
-	setTimeout(function() {
-		try {
-			input.setSelectionRange(0, input.value.length);
-		}
-		catch(e) {
-			input.select();
-		}
-	}, 0);
-}
-
 function update() {
 	let odds = [Number(posOdds.value), Number(negOdds.value)];
 	let sum = odds[0] + odds[1];
@@ -36,7 +25,7 @@ function update() {
 
 for (let input of [posOdds, negOdds]) {
 	input.addEventListener('mouseenter', () => input.focus());
-	input.addEventListener('focus', () => selectInput(input));
+	input.addEventListener('focus', () => input.select());
 	input.addEventListener('input', update);
 }
 
@@ -55,7 +44,7 @@ document.addEventListener('keydown', function(event) {
 		if (activeElement == 'input')
 			document.activeElement.blur();
 		else if (activeElement != 'button')
-			setTimeout(() => posOdds.focus(), 0);
+			setTimeout(() => posOdds.focus());
 	}
 });
 
