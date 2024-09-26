@@ -9,7 +9,7 @@ const posRealOdds = document.getElementById('pos-real-odds');
 const negRealOdds = document.getElementById('neg-real-odds');
 
 function update() {
-	let odds = [Number(posOdds.value), Number(negOdds.value)];
+	let odds = [posOdds.valueAsNumber, negOdds.valueAsNumber];
 	let sum = odds[0] + odds[1];
 	let probs = [odds[1] / sum * 100, odds[0] / sum * 100];
 	posProb.textContent = probs[0].toFixed();
@@ -30,8 +30,8 @@ for (let input of [posOdds, negOdds]) {
 }
 
 aggregate.onclick = function() {
-	let odds = [Number(posOdds.value), Number(negOdds.value)];
-	posOdds.value = odds[0] * odds[1] / (odds[0] + odds[1]);
+	let odds = [posOdds.valueAsNumber, negOdds.valueAsNumber];
+	posOdds.valueAsNumber = odds[0] * odds[1] / (odds[0] + odds[1]);
 	negOdds.value = "";
 	update();
 	negOdds.focus();
