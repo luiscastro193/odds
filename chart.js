@@ -7,7 +7,7 @@ let vegaLoaded = new Promise(resolve => {
 		vl.register(vega, vegaLite, {view: {renderer: "svg"}});
 		config = vegaThemes.dark;
 		config.legend = {disable: true};
-		config.background = "#000";
+		config.background = "#0000";
 		resolve();
 	};
 });

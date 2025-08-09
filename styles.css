@@ -2,11 +2,6 @@
 	font-family: InterVariable, sans-serif;
 }
 
-body {
-	background-color: black;
-	filter: invert(1);
-}
-
 .container {
 	display: flex;
 	flex-wrap: wrap;
@@ -26,6 +21,5 @@ input {
 }
 
 #chart svg {
-	filter: invert(1);
 	transform: scaleX(-1);
 }
